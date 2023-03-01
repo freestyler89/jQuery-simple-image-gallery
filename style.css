@@ -1,0 +1,125 @@
+#thumbnail-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#thumbnail-container a {
+  display: inline-block;
+  width: 18%;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 1;
+  padding: 10px;
+}
+
+#thumbnail-container img {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#thumbnail-container a:hover {
+  opacity: 0.95;
+  transform: scale(1.05);
+}
+
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#lightbox-image {
+  max-width: 70%;
+  max-height: 70%;
+}
+
+#lightbox.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#close-button {
+  visibility: hidden;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;	
+}
+
+#lightbox.active #close-button {
+  visibility: visible;
+  opacity: 1;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  color: white;
+  padding: 3px;
+  background-color: transparent;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+
+.arrow.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  margin-left: 10px;
+}
+
+.arrow.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-right: 10px;
+}
+
+#lightbox-prev,
+#lightbox-next, 
+.lightbox-prev-text,
+.lightbox-next-text {
+  position: absolute;
+  top: auto;
+  transform: none;
+  max-width: 10%;
+  max-height: 10%;
+}
+
+#lightbox-prev,
+#lightbox-next {
+  filter: brightness(60%);
+  border: 5px solid lavender;
+  border-radius: 10px;
+}
+
+#lightbox-prev,
+.lightbox-prev-text {
+  bottom: 1%;
+  left: 34%;
+  transform: translateX(-50%);
+}
+
+#lightbox-next,
+.lightbox-next-text {
+  bottom: 1%;
+  right: 35%;
+  transform: translateX(50%);
+}
+
+.lightbox-prev-text,
+.lightbox-next-text {
+  color: white;
+  font-size: 2vh;
+}
